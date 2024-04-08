@@ -1,0 +1,25 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+    int arr[]={12,34,67,89,9};
+    int max1=0,max2=0,max3=0;
+    int i,j;
+    for(i=0;i<5;i++)
+    {
+      if(arr[i]>max1)
+      max1=arr[i];
+    }
+    for(i=0;i<5;i++)
+    {
+      if(arr[i]>max2 && arr[i]!=max1)
+      max2=arr[i];
+    }
+    for(i=0;i<5;i++)
+    {
+      if(arr[i]>max3 && (arr[i]!=max2 && arr[i]!=max1))
+      max3=arr[i];
+    }
+    System.out.println(max1+" "+max2+" "+max3);
+  }
+}
