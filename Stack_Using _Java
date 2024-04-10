@@ -1,0 +1,100 @@
+import java.util.*;
+
+class Stack69 {
+    int[] arr = new int[20];
+    int top = -1;
+    int size;
+
+    public void push(int val) {
+        if (top == size - 1) {
+            System.out.println("Stack Overflow");
+        } else {
+            top++;
+            arr[top] = val;
+            System.out.println("Element Pushed!!");
+        }
+    }
+
+    public int pop() {
+        if (top == -1) {
+            return -404;
+        }
+        int temp = arr[top];
+        top--;
+        return temp;
+    }
+
+    public int peek() {
+        if (top == -1) {
+            return -404;
+        }
+        return arr[top];
+    }
+
+    public void isEmpty() {
+        if (top == -1)
+            System.out.println("Stack is Empty");
+        else
+            System.out.println("Stack is not Empty");
+    }
+
+    public void show() {
+        System.out.print("Stack is:");
+        for (int i = 0; i <= top; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
+
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Stack69 ob = new Stack69();
+
+        System.out.println("Enter the size of stack:");
+        Scanner input = new Scanner(System.in);
+        int size = input.nextInt();
+        ob.size = size;
+
+        while (true) {
+            System.out.println("1...Push");
+            System.out.println("2...Pop");
+            System.out.println("3...Peek");
+            System.out.println("4...IsEmpty");
+            System.out.println("5...Show");
+            System.out.println("0...Exit");
+
+            System.out.println("Enter the choice:");
+            int ch = input.nextInt();
+
+            if (ch == 0) {
+                break;
+            } else if (ch == 1) {
+                System.out.println("Enter the value:");
+                int val = input.nextInt();
+                ob.push(val);
+
+            } else if (ch == 2) {
+                int temp = ob.pop();
+                if (temp == -404) {
+                    System.out.println("Stack Underflow");
+                } else {
+                    System.out.println("Element popped:" + temp);
+                }
+            } else if (ch == 3) {
+                int temp = ob.peek();
+                if (temp == -404) {
+                    System.out.println("Stack is Empty");
+                } else {
+                    System.out.println("Peek element:" + temp);
+                }
+            } else if (ch == 4) {
+                ob.isEmpty();
+            } else if (ch == 5) {
+                ob.show();
+            }
+        }
+    }
+}
